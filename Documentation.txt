@@ -1,0 +1,6 @@
+- Jangan lupa untuk memberi perintah "composer install" untuk menjalankan
+
+API Data:
+- Untuk membuat/generate API Token, tinggal pilih di dropdown menu profile
+- Gunakan API Token untuk melihat data API Menu Makanan pada postman atau melakukan post data Order pada POSTMAN
+
