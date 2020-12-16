@@ -11,8 +11,8 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     @foreach ($tables as $table)
                     <div class="col">
-                        <a id="detailOrder" href="#" data-bs-toggle="modal" data-bs-target="#detailOrder"
-                            data-id="{{ $table->id }}">
+                        <a id="detailOrder" href="#" data-bs-toggle="modal"
+                            data-bs-target="#detailOrder{{ $table->id }}" data-id="{{ $table->id }}">
                             <div class="card h-100">
                                 <div class="card-body">
                                     <h5 class="card-title">Table. {{ $table->no_table }}</h5>
@@ -21,6 +21,31 @@
                                 </div>
                             </div>
                         </a>
+                    </div>
+                    <!-- Modal Detail Order-->
+                    <div class="modal fade" id="detailOrder{{ $table->id }}" tabindex="-1"
+                        aria-labelledby="detailOrder{{ $table->id }}Label" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="detailOrder{{ $table->id }}Label">Detail Order</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h5 class="card-title">Table. {{ $table->no_table }}</h5>
+                                    <p id="noPesanan" class="card-text">No. Pesananan: ABC10102019-001</p>
+                                    <p id="statusOrder" class="text-right text-green"><strong>Active</strong></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                    @if (Auth::user()->current_team_id === 2)
+                                    <button type="button" class="btn btn-primary">Konfirm Payment</button>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     @endforeach
                 </div>
@@ -243,24 +268,6 @@
                     <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </form>
-        </div>
-    </div>
-</div>
-
-<!-- Modal Detail Order-->
-<div class="modal fade" id="detailOrder" tabindex="-1" aria-labelledby="detailOrderLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="detailOrderLabel">Detail Order</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
         </div>
     </div>
 </div>
