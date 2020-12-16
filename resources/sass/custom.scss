@@ -1,0 +1,57 @@
+$colorTheme: #6875F5;
+$white: #fff;
+
+// Utility
+.text-red {
+    color: #DC3545;
+}
+
+.text-green {
+    color: #79B871;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    .dropdown-toggle {
+        color: #21258A;
+    }
+}
+
+.contain-orderFood {
+    background: $white;
+    box-shadow: 1px 1px 10px #ddd;
+    border-radius: 10px;
+
+    .col-table {
+        a {
+            text-decoration: none;
+        }
+
+        .card:hover {
+            cursor: pointer;
+            box-shadow: 1px 1px 10px #ddd;
+        }
+    }
+
+    .col-add {
+        border-left: 1px solid #dee2e6;
+
+        ul {
+            padding: 1rem;
+            list-style-type: none;
+
+            li {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    .btn-primary {
+        background-color: $colorTheme !important;
+        color: $white !important;
+    }
+
+}

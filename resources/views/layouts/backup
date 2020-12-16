@@ -1,0 +1,72 @@
+@auth
+<x-jet-dropdown id="navbarDropdown">
+    <x-slot name="trigger">
+        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+        <img class="rounded-circle" width="32" height="32" src="{{ Auth::user()->profile_photo_url }}"
+            alt="{{ Auth::user()->name }}" />
+        @else
+        {{ Auth::user()->name }}
+        @endif
+    </x-slot>
+
+    <x-slot name="content">
+        <!-- Account Management -->
+        <h6 class="dropdown-header small text-muted">
+            {{ __('Manage Account') }}
+        </h6>
+
+        <x-jet-dropdown-link href="{{ route('profile.show') }}">
+            {{ __('Profile') }}
+        </x-jet-dropdown-link>
+
+        @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
+        <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
+            {{ __('API Tokens') }}
+        </x-jet-dropdown-link>
+        @endif
+
+        <!-- Team Management -->
+        @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+
+        <hr class="dropdown-divider">
+
+        <h6 class="dropdown-header">
+            {{ __('Manage Team') }}
+        </h6>
+
+        <!-- Team Settings -->
+        <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
+            {{ __('Team Settings') }}
+        </x-jet-dropdown-link>
+
+        @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
+        <x-jet-dropdown-link href="{{ route('teams.create') }}">
+            {{ __('Create New Team') }}
+        </x-jet-dropdown-link>
+        @endcan
+
+        <hr class="dropdown-divider">
+
+        <!-- Team Switcher -->
+        <h6 class="dropdown-header">
+            {{ __('Switch Teams') }}
+        </h6>
+
+        @foreach (Auth::user()->allTeams() as $team)
+        <x-jet-switchable-team :team="$team" />
+        @endforeach
+        @endif
+
+        <hr class="dropdown-divider">
+
+        <!-- Authentication -->
+        <x-jet-dropdown-link href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+        </x-jet-dropdown-link>
+        <form method="POST" id="logout-form" action="{{ route('logout') }}">
+            @csrf
+        </form>
+    </x-slot>
+</x-jet-dropdown>
+@endauth
