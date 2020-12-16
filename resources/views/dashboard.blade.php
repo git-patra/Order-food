@@ -16,8 +16,13 @@
                             <div class="card h-100">
                                 <div class="card-body">
                                     <h5 class="card-title">Table. {{ $table->no_table }}</h5>
-                                    <p id="noPesanan" class="card-text">No. Pesananan: ABC10102019-001</p>
-                                    <p id="statusOrder" class="text-right text-green"><strong>Active</strong></p>
+                                    @foreach ($orders as $order)
+                                    @if($order->table_id === $table->id && $order->status === 1)
+                                    <p id="noPesanan" class="card-text">No. Pesananan: {{ $order->no_transaksi }}</p>
+                                    <p id="statusOrder" class="text-right text-green">
+                                        <strong>Active</strong></p>
+                                    @endif
+                                    @endforeach
                                 </div>
                             </div>
                         </a>
@@ -33,9 +38,15 @@
                                         aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <h5 class="card-title">Table. {{ $table->no_table }}</h5>
-                                    <p id="noPesanan" class="card-text">No. Pesananan: ABC10102019-001</p>
-                                    <p id="statusOrder" class="text-right text-green"><strong>Active</strong></p>
+                                    <h5 class="card-title">Table. {{ $table->no_table }}
+                                    </h5>
+                                    @foreach ($orders as $order)
+                                    @if($order->table_id === $table->id && $order->status === 1)
+                                    <p id="noPesanan" class="card-text">No. Pesananan: {{ $order->no_transaksi }}</p>
+                                    <p id="statusOrder" class="text-right text-green">
+                                        <strong>Active</strong></p>
+                                    @endif
+                                    @endforeach
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
