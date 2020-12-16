@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
 {
+    public function index()
+    {
+        $menu = Menu::all();
+        return response()->json([
+            'message' => 'success',
+            'menu' => $menu
+        ]);
+    }
     //
     public function store(Request $request)
     {
