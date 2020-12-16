@@ -134,6 +134,33 @@
         </div>
     </div>
 </div>
+<!-- Modal Add Table-->
+<div class="modal fade" id="addTable" tabindex="-1" aria-labelledby="addTableLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="{{ url('/menu_type') }}" method="post" class="pl-3 pr-3">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addTableLabel">Add Menu Type</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="type">Menu Type</label>
+                        <input class="form-control" type="text" id="type" name="type" required
+                            value="{{ old('type') }}">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <!-- Modal Detail Menu-->
 <div class="modal fade" id="detailMenu" tabindex="-1" aria-labelledby="detailMenuLabel" aria-hidden="true">

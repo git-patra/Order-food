@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
 
     Route::post('/table', [TableController::class, 'store']);
     Route::post('/menu', [MenuController::class, 'store']);
+    Route::post('/menu_type', [MenuController::class, 'storeType']);
 
     //! API
     Route::domain('api.localhost')->group(function () {

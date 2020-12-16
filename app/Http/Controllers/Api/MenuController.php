@@ -30,14 +30,12 @@ class MenuController extends Controller
     public function storeType(Request $request)
     {
         Menu_type::create([
-            'name' => $request->name,
-            'creator' => $request->creator,
+            'name' => $request->type,
+            'creator' => Auth::user()->name,
             'created_at' => $request->created_at,
             'updated_at' => $request->updated_at
         ]);
 
-        return response()->json([
-            'message' => 'Successfully added!'
-        ], 200);
+        return redirect('/dashboard')->with('status', 'Successfully Added!');
     }
 }
