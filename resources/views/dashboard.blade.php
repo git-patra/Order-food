@@ -45,15 +45,15 @@
                                     <p id="noPesanan" class="card-text">No. Pesananan: {{ $order->no_transaksi }}</p>
                                     <p id="statusOrder" class="text-right text-green">
                                         <strong>Active</strong></p>
+                                    @if (Auth::user()->current_team_id === 2)
+                                    <button type="button" class="btn btn-primary">Konfirm Payment</button>
+                                    @endif
                                     @endif
                                     @endforeach
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    @if (Auth::user()->current_team_id === 2)
-                                    <button type="button" class="btn btn-primary">Konfirm Payment</button>
-                                    @endif
                                 </div>
                             </div>
                         </div>
