@@ -43,8 +43,17 @@
                                     @foreach ($orders as $order)
                                     @if($order->table_id === $table->id && $order->status === 1)
                                     <p id="noPesanan" class="card-text">No. Pesananan: {{ $order->no_transaksi }}</p>
+                                    <p>Menu:</p>
+                                    <ul>
+                                        @foreach ($order_menus as $order_menu)
+                                        @if ($order->no_transaksi === $order_menu->no_transaksi)<li>
+                                            {{ $order_menu->menu->name }}</li>
+                                        @endif
+                                        @endforeach
+                                    </ul>
                                     <p id="statusOrder" class="text-right text-green">
-                                        <strong>Active</strong></p>
+                                        <strong>Active</strong>
+                                    </p>
                                     @if (Auth::user()->current_team_id === 2)
                                     <button type="button" class="btn btn-primary">Konfirm Payment</button>
                                     @endif
