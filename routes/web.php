@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
     //! API
     Route::domain('api.localhost')->group(function () {
         Route::post('api/order', [OrderController::class, 'store'])->name('order');
-        Route::post('api/menu', [MenuController::class, 'index'])->name('order');
+        Route::get('api/menu', [MenuController::class, 'index'])->name('order');
     });
 });
 
