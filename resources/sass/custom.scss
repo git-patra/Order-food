@@ -14,12 +14,23 @@ a {
     text-decoration: none;
 }
 
+.btn-primary {
+    background-color: $colorTheme !important;
+    color: $white !important;
+}
+
+.btn-danger {
+    color: $white !important;
+}
+
+// Nav
 nav {
     .dropdown-toggle {
         color: #21258A;
     }
 }
 
+// Contain
 .contain-orderFood {
     background: $white;
     box-shadow: 1px 1px 10px #ddd;
@@ -48,10 +59,4 @@ nav {
             }
         }
     }
-
-    .btn-primary {
-        background-color: $colorTheme !important;
-        color: $white !important;
-    }
-
 }

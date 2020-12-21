@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Api\ApiController;
 use App\Http\Controllers\Api\MenuController;
 use App\Http\Controllers\Api\TableController;
 use App\Http\Controllers\Api\OrderController;
@@ -27,18 +26,16 @@ Route::group(['middleware' => 'auth:sanctum'], function () {
         '/dashboard',
         [DashboardController::class, 'index']
     )->name('dashboard');
-
-    Route::post('/table', [TableController::class, 'store']);
-    Route::post('/menu', [MenuController::class, 'store']);
     Route::post('/menu_type', [MenuController::class, 'storeType']);
-
-    //! API
-    Route::domain('api.localhost')->group(function () {
-        Route::post('api/order', [OrderController::class, 'store'])->name('order');
-        Route::get('api/menu', [MenuController::class, 'index'])->name('order');
-    });
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
+
+//! API
+// Route::domain('api.localhost')->group(function () {
+//     Route::post('api/order', [OrderController::class, 'store'])->name('order');
+//     Route::get('api/menu', [MenuController::class, 'index'])->name('order');
+    // Route::post('/menu', [MenuController::class, 'store']);
+// });

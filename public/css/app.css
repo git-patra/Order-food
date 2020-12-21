@@ -11607,6 +11607,15 @@ a {
   text-decoration: none;
 }
 
+.btn-primary {
+  background-color: #6875F5 !important;
+  color: #fff !important;
+}
+
+.btn-danger {
+  color: #fff !important;
+}
+
 nav .dropdown-toggle {
   color: #21258A;
 }
@@ -11637,10 +11646,5 @@ nav .dropdown-toggle {
 
 .contain-orderFood .col-add ul li {
   margin-bottom: 1rem;
-}
-
-.contain-orderFood .btn-primary {
-  background-color: #6875F5 !important;
-  color: #fff !important;
 }
 

@@ -1,2 +1,5 @@
+// Util & Post
 require('./bootstrap');
-require('./data/table');
+require('./post/table');
+require('./post/menu');
+require('./post/order');

@@ -15,10 +15,9 @@ class TableController extends Controller
     public function store(Request $request)
     {
         Table::create([
-            'no_table' => $request->no_table,
+            'no_table' => $request->input('no_table'),
             'creator' => Auth::user()->name,
-            'created_at' => $request->created_at,
-            'updated_at' => $request->updated_at
+            'created_at' => now()
         ]);
 
         return redirect('/dashboard')->with('status', 'Successfully Added!');
